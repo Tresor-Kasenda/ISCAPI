@@ -42,41 +42,6 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
 <script src="{{ asset('assets/js/init/fullcalendar-init.js') }}"></script>
-
-
-<script>
-    let url = "{{url('chart')}}";
-    let Years = [];
-    let Labels = [];
-    let Prices = [];
-    $(document).ready(function(){
-        $.get(url, function(response){
-            response.forEach(function(data){
-                Years.push(data.stockYear);
-                Labels.push(data.stockName);
-                Prices.push(data.stockPrice);
-            });
-            var ctx = document.getElementById("canvas").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels:Years,
-                    datasets: [{
-                        label: 'Infosys Price',
-                        data: Prices,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    });
-</script>
+<script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+<!-- Chartisan -->
+<script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>

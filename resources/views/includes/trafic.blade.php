@@ -6,8 +6,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="panel-body">
-                        <canvas id="canvas" height="280" width="600"></canvas>
+                    <div class="card-body">
+                        <div class="panel-body">
+                            <canvas id="canvas" height="280" width="600"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">

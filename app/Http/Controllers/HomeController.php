@@ -2,11 +2,11 @@
 declare(strict_types=1);
 namespace App\Http\Controllers;
 
+use App\Charts\HomeChart;
 use App\Models\Communicate;
 use App\Models\Result;
 use App\Models\Student;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 /****
@@ -45,13 +45,22 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     * @return Student[]|Renderable|Collection
+     * @return Renderable
      */
     public function index()
     {
-        return Student::all();
-
+        $student = $this->student::all();
+        $result = $this->result::all();
+        $communicate = $this->communicate::all();
+        $chart = new HomeChart;
+        return view('home', compact('chart'));
     }
 
+    public function chart()
+    {
+        $result = Student::all();
+
+        return response()->json($result);
+    }
 
 }
