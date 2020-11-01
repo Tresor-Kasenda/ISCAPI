@@ -6,6 +6,7 @@ use App\Models\Communicate;
 use App\Models\Result;
 use App\Models\Student;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 /****
@@ -44,23 +45,13 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     * @return Renderable
+     * @return Student[]|Renderable|Collection
      */
     public function index()
     {
-        return view('home', [
-            'student' => $this->student::all(),
-            'result' => $this->result::all(),
-            'communicate' => $this->communicate::all()
-        ]);
+        return Student::all();
+
     }
 
-    public function chart()
-    {
-        $result = DB::table('students')
-            ->where('created_at','=',now('D'))
-            ->get();
-        return response()->json($result);
-    }
 
 }
