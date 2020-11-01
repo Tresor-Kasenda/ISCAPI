@@ -49,3 +49,6 @@
     }
 
 </style>
+
+<link rel="stylesheet" href="{{ asset('assets/css/cs-skin-elastic.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/lib/datatable/dataTables.bootstrap.min.css') }}">

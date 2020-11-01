@@ -6,6 +6,7 @@ use App\Models\Communicate;
 use App\Models\Result;
 use App\Models\Student;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\DB;
 
 /****
  * Class HomeController
@@ -53,4 +54,13 @@ class HomeController extends Controller
             'communicate' => $this->communicate::all()
         ]);
     }
+
+    public function chart()
+    {
+        $result = DB::table('students')
+            ->where('created_at','=',now('D'))
+            ->get();
+        return response()->json($result);
+    }
+
 }

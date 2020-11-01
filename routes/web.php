@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\ResultController;
+use App\Http\Controllers\Backend\StudentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +23,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/chart', [App\Http\Controllers\HomeController::class, 'chart']);
+Route::resource('student', StudentController::class);
+Route::resource('result', ResultController::class);

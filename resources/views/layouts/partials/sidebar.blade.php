@@ -7,11 +7,11 @@
                 </li>
                 <li class="menu-title">Nos Etudiants</li>
                 <li>
-                    <a href="#">Inscription</a>
+                    <a href="{{ route('student.index') }}">Liste Etudiants</a>
                 </li>
                 <li class="menu-title">Nos Resultat</li>
                 <li>
-                    <a href="#">Liste Resultat</a>
+                    <a href="{{ route('result.index') }}">Liste Resultat</a>
                 </li>
                 <li class="menu-title">Nos Communiquer</li>
                 <li>

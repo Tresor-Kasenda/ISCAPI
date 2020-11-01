@@ -15,6 +15,8 @@ class CreateCommunicatesTable extends Migration
     {
         Schema::create('communicates', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('content');
             $table->timestamps();
         });
     }

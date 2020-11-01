@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Data Table</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                            <tr class="text-center">
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Option suivi</th>
+                                <th>Departement</th>
+                                <th>Pourcentage</th>
+                                <th>Options</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($students as $student)
+                                <tr>
+                                    <td>{{ $student->username }}</td>
+                                    <td>{{ $student->prenom }}</td>
+                                    <td>{{ $student->option }}</td>
+                                    <td>{{ $student->departement }}</td>
+                                    <td>{{ $student->pourcent }}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            {{ $students->links() }}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

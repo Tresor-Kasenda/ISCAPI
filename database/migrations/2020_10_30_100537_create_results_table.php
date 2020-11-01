@@ -15,6 +15,9 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            $table->string('username', 90);
+            $table->string('prenom', 50);
+            $table->string('department');
             $table->timestamps();
         });
     }

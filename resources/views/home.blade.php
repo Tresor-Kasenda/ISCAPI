@@ -13,7 +13,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text">$<span class="count">23569</span></div>
+                                        <div class="stat-text">$<span class="count">{{ DB::table('students')->count() ?? '0' }}</span></div>
                                         <div class="stat-heading">Etudiant</div>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">3435</span></div>
+                                        <div class="stat-text"><span class="count">{{ DB::table('students')->count() ?? '0' }}</span></div>
                                         <div class="stat-heading">Inscrit</div>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">349</span></div>
+                                        <div class="stat-text"><span class="count">{{ DB::table('results')->count() ?? '0' }}</span></div>
                                         <div class="stat-heading">Resultat</div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">2986</span></div>
+                                        <div class="stat-text"><span class="count">{{ DB::table('communicates')->count() ?? '0' }}</span></div>
                                         <div class="stat-heading">Communiquer</div>
                                     </div>
                                 </div>
