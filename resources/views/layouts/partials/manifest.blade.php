@@ -46,6 +46,8 @@
 <!-- Chartisan -->
 <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
 
+{!! $chart->script() !!}
+
 {{--<script>--}}
 {{--    // const chart = new Chartisan({--}}
 {{--    //     el: '#chart',--}}

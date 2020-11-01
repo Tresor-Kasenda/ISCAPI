@@ -12,4 +12,5 @@ class Student extends Model
     protected $fillable = [];
 
     protected $casts = ['id' => 'integer'];
+
 }

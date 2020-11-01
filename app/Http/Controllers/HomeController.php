@@ -7,7 +7,6 @@ use App\Models\Communicate;
 use App\Models\Result;
 use App\Models\Student;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Facades\DB;
 
 /****
  * Class HomeController
@@ -49,10 +48,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $student = $this->student::all();
-        $result = $this->result::all();
-        $communicate = $this->communicate::all();
+        $student = $this->student::orderBy('created_at')->get()->pluck('id', 'created_at');
         $chart = new HomeChart;
+        $chart->labels($student->keys());
+        $chart->dataset('My dataset', 'bar', $student->values());
+
         return view('home', compact('chart'));
     }
 

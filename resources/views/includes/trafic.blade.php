@@ -8,7 +8,7 @@
                 <div class="col-lg-8">
                     <div class="card-body">
                         <div class="panel-body">
-                            <canvas id="canvas" height="280" width="600"></canvas>
+                            {!! $chart->container() !!}
                         </div>
                     </div>
                 </div>
