@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Communicate extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'content'];
 }

@@ -32,4 +32,14 @@ class StudentController extends Controller
            'students' => $student::paginate(15)
         ]);
     }
+
+    public function destroy(Student $student)
+    {
+        if ($student){
+            $student->delete();
+            return redirect()->route('student.index');
+        }
+        return redirect()->route('student.index')->with('message', 'Impossible de supprimer cet etudiant');
+    }
+
 }

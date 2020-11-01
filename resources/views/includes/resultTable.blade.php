@@ -23,7 +23,13 @@
                                     <td>{{ $student->prenom }}</td>
                                     <td>{{ $student->departement }}</td>
                                     <td>
-                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                        <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('result.destroy', $student) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger">
+                                                Supprimer
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

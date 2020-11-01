@@ -15,7 +15,7 @@
                 </li>
                 <li class="menu-title">Nos Communiquer</li>
                 <li>
-                    <a href="#">Communiquer</a>
+                    <a href="{{ route('communiquer.index') }}">Communiquer</a>
                 </li>
             </ul>
         </div>
