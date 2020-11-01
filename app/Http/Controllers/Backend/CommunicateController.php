@@ -1,0 +1,86 @@
+<?php
+declare(strict_types=1);
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use App\Models\Communicate;
+use App\Models\Result;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+
+/***
+ * Class CommunicateController
+ * @author scotttresor@gmail.com
+ * @package App\Http\Controllers\Backend
+ */
+class CommunicateController extends Controller
+{
+    /**
+     * @var Communicate
+     */
+    private Communicate $communicate;
+
+    /**
+     * CommunicateController constructor.
+     * @param Communicate $communicate
+     */
+    public function __construct(Communicate $communicate)
+    {
+        $this->middleware('auth');
+        $this->communicate = $communicate;
+    }
+
+    /***
+     * @return Application|Factory|View
+     * @author scotttresor@gmail.com
+     */
+    public function index(): View
+    {
+        return view('app.communicate.index', [
+            'invoice' => $this->communicate::paginate(10)
+        ]);
+    }
+
+    /***
+     * @return Application|Factory|View
+     * @author scotttresor@gmail.com
+     */
+    public function create(): View
+    {
+        return view('app.communicate.create');
+    }
+
+    /***
+     * @param Request $request
+     * @return RedirectResponse
+     * @author scotttresor@gmail.com
+     */
+    public function store(Request $request): RedirectResponse
+    {
+        $communiquer = $request
+            ->validate([
+                'title' => 'required|min:6',
+                'content' => 'required'
+            ]);
+        Communicate::create($communiquer);
+        return redirect()->route('communiquer.index');
+    }
+
+    /***
+     * @param Communicate $communicate
+     * @return RedirectResponse
+     * @author scotttresor@gmail.com
+     */
+    public function destroy(Communicate $communicate)
+    {
+        if ($communicate){
+            $communicate->delete();
+            return redirect()->route('communiquer.index');
+        }
+        return redirect()->route('communiquer.index')->with('message', 'Impossible de supprimer le resultat');
+    }
+
+}
