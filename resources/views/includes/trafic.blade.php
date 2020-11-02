@@ -8,10 +8,7 @@
                 <div class="col-lg-8">
                     <div class="card-body">
                         <div class="panel-body">
-                            {!! $chart->container() !!}
-
-
-                            {!! $chart->script() !!}
+                            <canvas id="pie-chart"></canvas>
                         </div>
                     </div>
                 </div>

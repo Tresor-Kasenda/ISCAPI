@@ -58,23 +58,21 @@ class HomeController extends Controller
             $data['data'][] = (int) $row->count;
         }
         $data['chart_data'] = json_encode($data);
-
         dd($data);
 
-        return view('home', compact('char}t'));
+        return view('home', compact('chart'));
     }
 
-    public function chart()
-    {
-        $result = Student::all();
-
-        return response()->json($result);
-    }
-
-
+    /***
+     * @return mixed
+     * @author scotttresor@gmail.com
+     */
     private  function getDataByDays()
     {
-       return Student::select(DB::raw("COUNT(*) as count"), DB::raw("DAYNAME(created_at) as day_name"), DB::raw("DAY(created_at) as day"))
+       return Student::select(
+           DB::raw("COUNT(*) as count"),
+           DB::raw("DAYNAME(created_at) as day_name"),
+           DB::raw("DAY(created_at) as day"))
             ->where('created_at', '>', Carbon::today()->subDay(6))
             ->groupBy('day_name','day')
             ->orderBy('day')
