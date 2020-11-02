@@ -6,7 +6,9 @@ use App\Charts\HomeChart;
 use App\Models\Communicate;
 use App\Models\Result;
 use App\Models\Student;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\DB;
 
 /****
  * Class HomeController
@@ -48,12 +50,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $student = $this->student::orderBy('created_at')->get()->pluck('id', 'created_at');
-        $chart = new HomeChart;
-        $chart->labels($student->keys());
-        $chart->dataset('My dataset', 'bar', $student->values());
+        $record  = $this->getDataByDays();
+        $data = [];
 
-        return view('home', compact('chart'));
+        foreach($record as $row) {
+            $data['label'][] = $row->day_name;
+            $data['data'][] = (int) $row->count;
+        }
+        $data['chart_data'] = json_encode($data);
+
+        dd($data);
+
+        return view('home', compact('char}t'));
     }
 
     public function chart()
@@ -61,6 +69,16 @@ class HomeController extends Controller
         $result = Student::all();
 
         return response()->json($result);
+    }
+
+
+    private  function getDataByDays()
+    {
+       return Student::select(DB::raw("COUNT(*) as count"), DB::raw("DAYNAME(created_at) as day_name"), DB::raw("DAY(created_at) as day"))
+            ->where('created_at', '>', Carbon::today()->subDay(6))
+            ->groupBy('day_name','day')
+            ->orderBy('day')
+            ->get();
     }
 
 }

@@ -9,6 +9,9 @@
                     <div class="card-body">
                         <div class="panel-body">
                             {!! $chart->container() !!}
+
+
+                            {!! $chart->script() !!}
                         </div>
                     </div>
                 </div>
