@@ -49,7 +49,7 @@
 <script>
     $(function(){
         //get the pie chart canvas
-        var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+        var cData = JSON.parse(`<?php echo $chart_data ?? ''; ?>`);
         var ctx = $("#pie-chart");
 
         //pie chart data

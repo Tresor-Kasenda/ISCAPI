@@ -40,7 +40,7 @@ class CommunicateController extends Controller
     public function index(): View
     {
         return view('app.communicate.index', [
-            'invoice' => $this->communicate::paginate(10)
+            'invoice' => $this->communicate::all()
         ]);
     }
 
@@ -76,6 +76,7 @@ class CommunicateController extends Controller
      */
     public function destroy(Communicate $communicate)
     {
+
         if ($communicate){
             $communicate->delete();
             return redirect()->route('communiquer.index');

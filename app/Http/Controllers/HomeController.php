@@ -58,9 +58,8 @@ class HomeController extends Controller
             $data['data'][] = (int) $row->count;
         }
         $data['chart_data'] = json_encode($data);
-        dd($data);
 
-        return view('home', compact('chart'));
+        return view('home', $data);
     }
 
     /***

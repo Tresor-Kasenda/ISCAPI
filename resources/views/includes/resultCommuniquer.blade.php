@@ -32,7 +32,6 @@
                                 </tr>
                             @endforeach
                             </tbody>
-                            {{ $invoice->links() }}
                         </table>
                     </div>
                 </div>

@@ -4,11 +4,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Imports\ExcelImport;
 use App\Models\Result;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 /***
  * Class ResultController
@@ -45,8 +48,11 @@ class ResultController extends Controller
         return view('app.results.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $resultat = $request->file('result');
+        Excel::import(new ExcelImport(), $resultat, null,);
+
     }
 
     /***

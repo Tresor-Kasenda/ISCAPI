@@ -39,7 +39,7 @@
                                     <h3 class="text-center">Pay Invoice</h3>
                                 </div>
                                 <hr>
-                                <form action={{ route('result.store') }} method="POST" novalidate="novalidate">
+                                <form action={{ route('result.store') }} method="POST" novalidate="novalidate" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label class="control-label mb-1">Ajouter un fichier excel</label>
