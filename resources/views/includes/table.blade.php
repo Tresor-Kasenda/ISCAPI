@@ -5,7 +5,6 @@
                 <div class="card">
                     <div class="card-header text-right">
                         <a href="{{ route('student.download') }}" class="btn btn-primary">Exporter en excel</a>
-                        <a href="" class="btn btn-primary">Importer en excel</a>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">

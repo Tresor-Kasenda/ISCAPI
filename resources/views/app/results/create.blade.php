@@ -36,7 +36,7 @@
                         <div id="pay-invoice">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h3 class="text-center"></h3>
+                                    <h3 class="text-center">Exporter le resultat</h3>
                                 </div>
                                 <hr>
                                 <form action={{ route('result.store') }} method="POST" novalidate="novalidate" enctype="multipart/form-data">

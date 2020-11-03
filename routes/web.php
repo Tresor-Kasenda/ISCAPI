@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\ResultExport;
 use App\Exports\StudentExport;
 use App\Http\Controllers\Backend\CommunicateController;
 use App\Http\Controllers\Backend\ResultController;
@@ -30,8 +31,14 @@ Route::resource('student', StudentController::class);
 Route::resource('result', ResultController::class);
 Route::resource('communiquer', CommunicateController::class);
 
-Route::get('/download', function (){
+Route::get('/down', function (){
     return Excel::download(
         new StudentExport, 'student.xlsx'
     );
 })->name('student.download');
+
+Route::get('/download', function (){
+    return Excel::download(
+        new ResultExport, 'result.xlsx'
+    );
+})->name('result.download');

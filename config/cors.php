@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'api/admin/*', 'api/users/*', '*'],
+    'paths' => ['api/*', 'api/student/*', 'api/result/*', '*'],
 
     'allowed_methods' => ['POST', 'GET', 'DELETE', 'PUT', '*'],
 
@@ -23,7 +23,7 @@ return [
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['X-Custom-Header', 'Upgrade-Insecure-Requests','*'],
+    'allowed_headers' => ['X-Custom-Header', 'Access-Control-Allow-Origin', 'Upgrade-Insecure-Requests','*'],
 
     'exposed_headers' => [],
 
