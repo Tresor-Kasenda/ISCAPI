@@ -18,10 +18,10 @@
                             </thead>
                             <tbody>
                             @foreach($results as $student)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $student->username }}</td>
                                     <td>{{ $student->prenom }}</td>
-                                    <td>{{ $student->departement }}</td>
+                                    <td>{{ $student->department }}</td>
                                     <td>
                                         <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('result.destroy', $student) }}" method="post" class="d-inline">
                                             @csrf
@@ -34,7 +34,6 @@
                                 </tr>
                             @endforeach
                             </tbody>
-                            {{ $results->links() }}
                         </table>
                     </div>
                 </div>

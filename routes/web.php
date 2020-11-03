@@ -1,10 +1,12 @@
 <?php
 
+use App\Exports\StudentExport;
 use App\Http\Controllers\Backend\CommunicateController;
 use App\Http\Controllers\Backend\ResultController;
 use App\Http\Controllers\Backend\StudentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('student', StudentController::class);
 Route::resource('result', ResultController::class);
 Route::resource('communiquer', CommunicateController::class);
+
+Route::get('/download', function (){
+    return Excel::download(
+        new StudentExport, 'student.xlsx'
+    );
+})->name('student.download');

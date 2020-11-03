@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Imports\ExcelImport;
+use App\Imports\ResultImport;
 use App\Models\Result;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -51,8 +52,8 @@ class ResultController extends Controller
     public function store(Request $request)
     {
         $resultat = $request->file('result');
-        Excel::import(new ExcelImport(), $resultat, null,);
-
+        Excel::import(new ResultImport, $resultat);
+        return redirect()->route('result.index');
     }
 
     /***

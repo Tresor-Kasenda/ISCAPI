@@ -9,5 +9,7 @@ class Result extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['username', 'prenom', 'department'];
+
     protected $casts = ['id' => 'integer'];
 }
