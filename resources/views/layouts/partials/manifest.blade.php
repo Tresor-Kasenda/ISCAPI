@@ -87,14 +87,14 @@
             responsive: true,
             title: {
                 display: true,
-                position: "top",
-                text: "Last Week Registered Users -  Day Wise Count",
+                position: "bottom",
+                text: " Derniere semaine  -  Comptage de la journee",
                 fontSize: 18,
                 fontColor: "#111"
             },
             legend: {
                 display: true,
-                position: "bottom",
+                position: "top",
                 labels: {
                     fontColor: "#333",
                     fontSize: 16

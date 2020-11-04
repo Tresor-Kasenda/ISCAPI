@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
  */
 class StudentController extends Controller
 {
-    use Data;
 
     /**
      * @var Student
