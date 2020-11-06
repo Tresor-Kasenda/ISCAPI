@@ -30,11 +30,11 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        if($data === true){
+        if($data){
             Student::create($data);
-            return response()->json($request->all(), 200);
+            return response()->json(['messgae' => 'Votre inscription a ete effectuer avec success'], 200);
         }
-        return response()->json('', 200);
+        return response()->json(['message' => 'Veillez verifier vos informations s il sont correcte'], 404);
     }
 
 }

@@ -18,7 +18,7 @@
                             <h4 class="por-title">Inscription</h4>
                             <div class="por-txt">{{ DB::table('students')->count() ?? '0' }} Etudiants inscrits</div>
                             <div class="progress mb-2" style="height: 5px;">
-                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: {{ DB::table('students')->count() ?? '0' }};" aria-valuenow="25" aria-valuemin="{{ DB::table('students')->count() ?? '0' }}" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width:{{ DB::table('students')->count() ?? '0' }}%;" aria-valuenow="{{ DB::table('students')->count() ?? '0' }}" aria-valuemin="0" aria-valuemax="2000"></div>
                             </div>
                         </div>
                         <div class="progress-box progress-2">
@@ -27,7 +27,7 @@
                             <div class="progress mb-2" style="height: 5px;">
                                 <div class="progress-bar bg-flat-color-3" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                        </div
+                        </div>
                     </div>
                 </div>
             </div>
