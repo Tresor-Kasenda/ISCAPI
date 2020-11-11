@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 namespace App\Exports;
-
 use App\Models\Student;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -17,9 +16,10 @@ use Maatwebsite\Excel\Events\AfterSheet;
  */
 class StudentExport implements FromCollection, WithHeadings, WithColumnFormatting, WithEvents
 {
-    /**
-    * @return Collection
-    */
+    /****
+     * @return Student[]|\Illuminate\Database\Eloquent\Collection|Collection
+     * @author scotttresor@gmail.com
+     */
     public function collection()
     {
         return Student::all();
