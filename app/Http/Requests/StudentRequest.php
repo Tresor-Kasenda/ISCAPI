@@ -1,41 +1,38 @@
 <?php
 declare(strict_types=1);
-namespace App\Http\Controllers\Api;
+namespace App\Http\Requests;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StudentRequest;
-use App\Models\Student;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Foundation\Http\FormRequest;
 
-/****
- * Class StudentController
+/***
+ * Class StudentRequest
  * @author scotttresor@gmail.com
- * @package App\Http\Controllers\Api
+ * @package App\Http\Requests
  */
-class StudentController extends Controller
+class StudentRequest extends FormRequest
 {
-
-    public function index()
+    /***
+     * @return false
+     * @author scotttresor@gmail.com
+     */
+    public function authorize()
     {
-        return Student::all();
+        return false;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return void
+    /***
+     * @return array
+     * @author scotttresor@gmail.com
      */
-    public function store(Request $request)
+    public function rules()
     {
-        $data  = $request->validate([
+        return [
             'username' => 'required|min:3',
             'prenom' => 'required|min:3',
             'sexe' => 'required',
             'birthdays' => 'date_format:Y/m/d',
             'nationality' => 'required',
-            'phoneNumber' => 'required|max:20',
+            'phoneNumber' => 'required|unique:students|max:20',
             'adress' => 'required',
             'ville' => 'required',
             'school' => 'required',
@@ -46,8 +43,6 @@ class StudentController extends Controller
             'pourcent' => 'required|numeric|max:2',
             'Department' => 'required',
             'Depart' => 'required'
-        ]);
-        dd($data);
+        ];
     }
-
 }
