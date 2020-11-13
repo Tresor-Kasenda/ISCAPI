@@ -17,15 +17,12 @@ class CommunicateController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return Communicate[]|Collection|Response
      */
     public function index()
     {
         return Communicate::all();
     }
-
-
 
     /**
      * Display the specified resource.

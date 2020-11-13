@@ -24,7 +24,7 @@
                                     <td>{{ $student->username }}</td>
                                     <td>{{ $student->prenom }}</td>
                                     <td>{{ $student->option }}</td>
-                                    <td>{{ $student->departement }}</td>
+                                    <td>{{ $student->Department }}</td>
                                     <td>{{ $student->pourcent }}</td>
                                     <td>
                                         <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('student.destroy', $student) }}" method="post" class="d-inline">

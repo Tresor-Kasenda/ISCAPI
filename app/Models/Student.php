@@ -30,4 +30,10 @@ class Student extends Model
 
     protected $casts = ['id' => 'integer'];
 
+
+    public function result()
+    {
+        return $this->belongsTo(Result::class);
+    }
+
 }

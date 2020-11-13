@@ -22,7 +22,7 @@ class ResultController extends Controller
     {
         $result = Result::all();
         if ($result){
-            return Result::all();
+            return response()->json($result, 200);
         }
     }
 

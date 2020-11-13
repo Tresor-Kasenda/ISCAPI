@@ -25,7 +25,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param Request $request
-     * @return void
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -47,7 +47,10 @@ class StudentController extends Controller
             'Department' => 'required',
             'Depart' => 'required'
         ]);
-        dd($data);
+        if ($data) {
+            Student::create($data);
+            return response()->json(['message' => 'Votre inscription a ete enregistrer'], 200);
+        }
     }
 
 }

@@ -25,6 +25,7 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
+
     public function index(Student $student)
     {
         return view('app.student.index', [
