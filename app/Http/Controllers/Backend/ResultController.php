@@ -36,7 +36,7 @@ class ResultController extends Controller
     public function index()
     {
         return view('app.results.index', [
-            'results' => Result::paginate(20)
+            'results' => Result::orderBy('created_at', 'DESC')->get()
         ]);
     }
 

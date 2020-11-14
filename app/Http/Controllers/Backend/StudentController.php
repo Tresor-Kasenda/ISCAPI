@@ -29,7 +29,7 @@ class StudentController extends Controller
     public function index(Student $student)
     {
         return view('app.student.index', [
-           'students' => $student::all()
+           'students' => $student::orderBy('created_at', 'DESC')->get()
         ]);
     }
 

@@ -57,7 +57,7 @@
             labels: cData.label,
             datasets: [
                 {
-                    label: "Student Count",
+                    label: "Information journalière",
                     data: cData.data,
                     backgroundColor: [
                         "#DEB887",
@@ -85,13 +85,6 @@
         //options
         var options = {
             responsive: true,
-            title: {
-                display: true,
-                position: "bottom",
-                text: " Derniere semaine  -  Comptage de la journee",
-                fontSize: 18,
-                fontColor: "#111"
-            },
             legend: {
                 display: true,
                 position: "top",

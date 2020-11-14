@@ -16,9 +16,9 @@
                     <div class="card-body">
                         <div class="progress-box progress-1">
                             <h4 class="por-title">Inscription</h4>
-                            <div class="por-txt">{{ DB::table('students')->count() ?? '0' }} Etudiants inscrits</div>
+                            <div class="por-txt">{{ DB::table('students')->count() ?? '0' }} Etudiants inscrits ({{ DB::table('students')->count() * 100 /5000 ?? '0' }} %)</div>
                             <div class="progress mb-2" style="height: 5px;">
-                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width:{{ DB::table('students')->count() ?? '0' }}%;" aria-valuenow="{{ DB::table('students')->count() ?? '0' }}" aria-valuemin="0" aria-valuemax="2000"></div>
+                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width:{{ DB::table('students')->count() * 100 /5000 ?? '0' }}%" aria-valuenow="{{ DB::table('students')->count() * 100 /5000 ?? '0' }}" aria-valuemin="0" aria-valuemax="2000"></div>
                             </div>
                         </div>
                         <div class="progress-box progress-2">
