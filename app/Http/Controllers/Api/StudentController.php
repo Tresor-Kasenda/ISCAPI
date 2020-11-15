@@ -33,7 +33,7 @@ class StudentController extends Controller
             'username' => 'required|min:3',
             'prenom' => 'required|min:3',
             'sexe' => 'required',
-            'birthdays' => 'date_format:Y/m/d',
+            'birthdays' => 'required',
             'nationality' => 'required',
             'phoneNumber' => 'required|max:20',
             'adress' => 'required',
@@ -43,7 +43,7 @@ class StudentController extends Controller
             'codeExetat' => 'required|max:16',
             'option' => 'required',
             'annee' => 'date_format:Y',
-            'pourcent' => 'required|numeric|max:2',
+            'pourcent' => 'required|numeric',
             'Department' => 'required',
             'Depart' => 'required'
         ]);

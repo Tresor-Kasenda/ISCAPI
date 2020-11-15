@@ -8,7 +8,6 @@ class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
@@ -18,16 +17,16 @@ class CreateStudentsTable extends Migration
             $table->string('username');
             $table->string('prenom');
             $table->string('sexe');
-            $table->dateTime('birthdays');
+            $table->string('birthdays');
             $table->string('nationality');
             $table->string('phoneNumber');
             $table->string('adress');
             $table->string('ville');
             $table->string('school');
             $table->string('province');
-            $table->integer('codeExetat');
+            $table->integer('codeExetat')->length(16);
             $table->string('option');
-            $table->dateTime('annee');
+            $table->date('annee');
             $table->integer('pourcent');
             $table->string('Department');
             $table->string('Depart');
@@ -37,7 +36,6 @@ class CreateStudentsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
      * @return void
      */
     public function down()
