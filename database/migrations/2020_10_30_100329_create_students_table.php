@@ -24,9 +24,9 @@ class CreateStudentsTable extends Migration
             $table->string('ville');
             $table->string('school');
             $table->string('province');
-            $table->integer('codeExetat')->length(16);
+            $table->bigInteger('codeExetat');
             $table->string('option');
-            $table->date('annee');
+            $table->year('annee');
             $table->integer('pourcent');
             $table->string('Department');
             $table->string('Depart');

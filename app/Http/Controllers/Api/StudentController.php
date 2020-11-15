@@ -3,11 +3,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StudentRequest;
 use App\Models\Student;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /****
  * Class StudentController
@@ -40,7 +38,7 @@ class StudentController extends Controller
             'ville' => 'required',
             'school' => 'required',
             'province' => 'required',
-            'codeExetat' => 'required|max:16',
+            'codeExetat' => 'required|unique:students|max:16',
             'option' => 'required',
             'annee' => 'date_format:Y',
             'pourcent' => 'required|numeric',
