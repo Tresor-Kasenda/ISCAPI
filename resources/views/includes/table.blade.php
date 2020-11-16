@@ -9,23 +9,23 @@
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
-                            <tr class="text-center">
-                                <th>Nom</th>
-                                <th>Prenom</th>
-                                <th>Option suivi</th>
-                                <th>Departement</th>
-                                <th>Pourcentage</th>
-                                <th>Options</th>
-                            </tr>
+                                <tr class="text-center">
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Option suivi</th>
+                                    <th>Departement</th>
+                                    <th>Pourcentage</th>
+                                    <th>Options</th>
+                                </tr>
                             </thead>
                             <tbody>
                             @foreach($students as $student)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $student->username }}</td>
                                     <td>{{ $student->prenom }}</td>
                                     <td>{{ $student->option }}</td>
                                     <td>{{ $student->Department }}</td>
-                                    <td>{{ $student->pourcent }}</td>
+                                    <td>{{ $student->pourcent }} %</td>
                                     <td>
                                         <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('student.destroy', $student) }}" method="post" class="d-inline">
                                             @csrf
