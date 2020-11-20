@@ -3,9 +3,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Data;
+use App\Http\Controllers\DataTrait\StudentTrait;
 use App\Models\Student;
-use Illuminate\Http\Request;
 
 /****
  * Class StudentController
@@ -14,16 +13,11 @@ use Illuminate\Http\Request;
  */
 class StudentController extends Controller
 {
-
+    use StudentTrait;
     /**
      * @var Student
      */
     private Student $student;
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
 
     public function index(Student $student)
@@ -37,6 +31,7 @@ class StudentController extends Controller
     {
         if ($student){
             $student->delete();
+
             return redirect()->route('student.index');
         }
         return redirect()->route('student.index')->with('message', 'Impossible de supprimer cet etudiant');

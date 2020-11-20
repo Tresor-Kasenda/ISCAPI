@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DataTrait\StudentTrait;
 use App\Models\Communicate;
 use App\Models\Result;
 use Illuminate\Contracts\Foundation\Application;
@@ -18,20 +19,11 @@ use Illuminate\Http\Request;
  */
 class CommunicateController extends Controller
 {
+    use StudentTrait;
     /**
      * @var Communicate
      */
     private Communicate $communicate;
-
-    /**
-     * CommunicateController constructor.
-     * @param Communicate $communicate
-     */
-    public function __construct(Communicate $communicate)
-    {
-        $this->middleware('auth');
-        $this->communicate = $communicate;
-    }
 
     /***
      * @return Application|Factory|View

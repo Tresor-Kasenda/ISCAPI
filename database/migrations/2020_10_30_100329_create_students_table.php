@@ -27,6 +27,7 @@ class CreateStudentsTable extends Migration
             $table->bigInteger('codeExetat');
             $table->string('option');
             $table->year('annee');
+            $table->string('matricule');
             $table->integer('pourcent');
             $table->string('Department');
             $table->string('Depart');

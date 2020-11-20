@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DataTrait\StudentTrait;
 use App\Imports\ExcelImport;
 use App\Imports\ResultImport;
 use App\Models\Result;
@@ -21,13 +22,7 @@ use Maatwebsite\Excel\Facades\Excel;
  */
 class ResultController extends Controller
 {
-    /***
-     * ResultController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    use StudentTrait;
 
     /***
      * @return Application|Factory|View
