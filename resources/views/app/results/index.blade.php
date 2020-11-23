@@ -4,6 +4,7 @@
 
 @section('backend')
     <div class="content">
+        @include('includes.session')
         <div class="animated fadeIn">
             @include('includes.resultTable')
         </div>

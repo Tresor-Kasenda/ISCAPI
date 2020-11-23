@@ -28,6 +28,7 @@
                     </div>
                 </div>
             </div>
+            @include('includes.session')
             @include('includes.resultCommuniquer')
         </div>
     </div>

@@ -48,6 +48,7 @@ class ResultController extends Controller
     {
         $resultat = $request->file('result');
         Excel::import(new ResultImport, $resultat);
+        session()->flash('success', 'Le résultat ont été publié avec succée');
         return redirect()->route('result.index');
     }
 
@@ -60,9 +61,11 @@ class ResultController extends Controller
     {
         if ($result){
             $result->delete();
+            session()->flash('success', `Le résultat a été supprimer avec succée`);
             return redirect()->route('result.index');
         }
-        return redirect()->route('result.index')->with('message', 'Impossible de supprimer le resultat');
+        session()->flash('danger', 'Impossible de supprimé ce resultat');
+        return redirect()->route('result.index');
     }
 
 

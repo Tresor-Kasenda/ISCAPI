@@ -58,6 +58,7 @@ class CommunicateController extends Controller
                 'content' => 'required'
             ]);
         Communicate::create($communiquer);
+        session()->flash('success', 'Le résultat a été publié avec succée');
         return redirect()->route('communiquer.index');
     }
 
@@ -71,9 +72,11 @@ class CommunicateController extends Controller
 
         if ($communicate){
             $communicate->delete();
+            session()->flash('success', `Le résultat a été supprimer avec succée`);
             return redirect()->route('communiquer.index');
         }
-        return redirect()->route('communiquer.index')->with('message', 'Impossible de supprimer le resultat');
+        session()->flash('danger', 'Impossible de supprimé ce communiquer');
+        return redirect()->route('communiquer.index');
     }
 
 }
