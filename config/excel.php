@@ -59,7 +59,7 @@ return [
         |
         */
         'properties'             => [
-            'creator'        => '',
+            'creator'        => 'scotttresor@gmail.com',
             'lastModifiedBy' => '',
             'title'          => '',
             'description'    => '',

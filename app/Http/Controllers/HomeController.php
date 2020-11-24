@@ -6,6 +6,7 @@ use App\Http\Controllers\DataTrait\Data;
 use Illuminate\Contracts\Support\Renderable;
 
 
+
 /****
  * Class HomeController
  * @author scotttresor@gmail.com
@@ -15,7 +16,7 @@ class HomeController extends Controller
 {
 
     use Data;
-    
+
     /**
      * Show the application dashboard.
      * @return Renderable

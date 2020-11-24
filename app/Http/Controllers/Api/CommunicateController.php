@@ -26,10 +26,10 @@ class CommunicateController extends Controller
 
     /**
      * Display the specified resource.
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return void
      */
-    public function show($id)
+    public function show(int $id)
     {
         //
     }

@@ -20,7 +20,7 @@ class UserSeederTable extends Seeder
     {
         User::create([
             'name' => 'admin',
-            'email' => 'admin@admin.comm',
+            'email' => 'admin@admin.com',
             'password' => \Illuminate\Support\Facades\Hash::make('scotttresor')
         ]);
     }
