@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-namespace App\Exports;
-use App\Models\Student;
+namespace App\Modules\Exports;
+use App\Models\Result;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
@@ -9,20 +9,20 @@ use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-/****
- * Class StudentExport
+/***
+ * Class ResultExport
  * @author scotttresor@gmail.com
  * @package App\Exports
  */
-class StudentExport implements FromCollection, WithHeadings, WithColumnFormatting, WithEvents
+class ResultExport implements FromCollection, WithHeadings, WithColumnFormatting, WithEvents
 {
-    /****
-     * @return Student[]|\Illuminate\Database\Eloquent\Collection|Collection
+    /**
+     * @return Result[]|\Illuminate\Database\Eloquent\Collection|Collection
      * @author scotttresor@gmail.com
      */
     public function collection()
     {
-        return Student::all();
+        return Result::all();
     }
 
     /***
@@ -32,23 +32,10 @@ class StudentExport implements FromCollection, WithHeadings, WithColumnFormattin
     public function headings(): array
     {
         return [
-            'Identifiant',
-            'Nom et Postnom',
-            'Prenom',
-            'Sexe',
-            'Date de naissance',
-            'Nationalite',
-            'Numero de telephone',
-            'Adresse',
-            'Ville',
-            'Ecole de Provenance',
-            'Provice',
-            'Code Exetat',
-            'Option',
-            'Annee de diplome',
-            'Pourcentage',
-            'Department choisie 1',
-            'Departement choisie 2'
+            'id',
+            'username',
+            'prenom',
+            'department',
         ];
     }
 
@@ -77,7 +64,7 @@ class StudentExport implements FromCollection, WithHeadings, WithColumnFormattin
         ];
         return [
             AfterSheet::class => function(AfterSheet $event) use ($styleArray) {
-                $event->sheet->getStyle('A1:S1')->applyFromArray($styleArray);
+                $event->sheet->getStyle('A1:D1')->applyFromArray($styleArray);
             }
         ];
     }

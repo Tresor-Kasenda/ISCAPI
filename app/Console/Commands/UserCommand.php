@@ -1,21 +1,16 @@
 <?php
-declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-/***
- * Class UserCommand
- * @author scotttresor@gmail.com
- * @package App\Console\Commands
- */
 class UserCommand extends Command
 {
     /**
      * The name and signature of the console command.
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'student:newstudents';
 
     /**
      * The console command description.

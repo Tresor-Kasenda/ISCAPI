@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace App\Imports;
+namespace App\Modules\Imports;
 use App\Models\Result;
 use Illuminate\Database\Eloquent\Model;
 use Maatwebsite\Excel\Concerns\ToModel;
