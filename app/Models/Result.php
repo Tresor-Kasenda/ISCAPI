@@ -12,4 +12,9 @@ class Result extends Model
     protected $fillable = ['username', 'prenom', 'department'];
 
     protected $casts = ['id' => 'integer'];
+
+    public function student()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

@@ -24,6 +24,8 @@ class Student extends Model
         'option',
         'annee',
         'pourcent',
+        'matricule',
+        'email',
         'Department',
         'Depart'
     ];
