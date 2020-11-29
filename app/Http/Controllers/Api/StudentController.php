@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DataTrait\StudentTrait;
 use App\Models\Student;
+use App\Modules\Events\StudentSubscriptionEvent;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     use StudentTrait;
+
     public function index()
     {
         return Student::all();
@@ -35,6 +37,7 @@ class StudentController extends Controller
             'birthdays' => 'required',
             'nationality' => 'required',
             'phoneNumber' => 'required|max:20',
+            'email' => 'required|email|unique:students',
             'adress' => 'required',
             'ville' => 'required',
             'school' => 'required',
@@ -48,20 +51,22 @@ class StudentController extends Controller
             'Depart' => 'required'
         ]);
         if ($data) {
-            Student::create($data);
+            $student = Student::create($data);
+            event(new StudentSubscriptionEvent($student));
             return response()->json(['success' => 'Votre inscription a ete enregistrer'], 200);
         }
         return response()->json(['error' => 'Impossible de contactez le serveur'], 404);
     }
 
     /***
+     * @param Request $request
      * @return string
      * @author scotttresor@gmail.com
      */
-    private function registrationNumber()
+    private function registrationNumber(Request $request)
     {
-        $department = $this->request->Department;
-        $years = $this->request->annee;
+        $department = $request->Department;
+        $years = $request->annee;
         return $matricul = $years. '-'. $department;
     }
 
