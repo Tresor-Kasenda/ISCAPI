@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Result;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 /***
@@ -16,7 +17,7 @@ class ResultController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @return Result[]|Collection|Response
+     * @return JsonResponse
      */
     public function index()
     {

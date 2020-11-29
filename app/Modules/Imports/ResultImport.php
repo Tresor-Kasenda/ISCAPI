@@ -22,7 +22,9 @@ class ResultImport implements ToModel
         return new Result([
             'username'     => $row[0],
             'prenom'    => $row[1],
-            'department' => $row[2]
+            'department' => $row[2],
+            'email' => $row[3],
+            'matricule' => $row[4]
         ]);
     }
 }

@@ -18,6 +18,8 @@ class StudentController extends Controller
 {
     use StudentTrait;
 
+    private Request $request;
+
     public function index()
     {
         return Student::all();
@@ -59,14 +61,13 @@ class StudentController extends Controller
     }
 
     /***
-     * @param Request $request
      * @return string
      * @author scotttresor@gmail.com
      */
-    private function registrationNumber(Request $request)
+    private function registrationNumber()
     {
-        $department = $request->Department;
-        $years = $request->annee;
+        $department = $this->request->Department;
+        $years = $this->request->annee;
         return $matricul = $years. '-'. $department;
     }
 
