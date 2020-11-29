@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('birthdays');
             $table->string('nationality');
             $table->string('phoneNumber');
+            $table->string('email');
             $table->string('adress');
             $table->string('ville');
             $table->string('school');
