@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DataTrait\StudentTrait;
 use App\Models\Result;
+use App\Modules\Events\ResultEvent;
 use App\Modules\Imports\ResultImport;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

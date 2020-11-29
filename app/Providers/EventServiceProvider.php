@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Result;
+use App\Modules\Events\ResultEvent;
 use App\Modules\Events\StudentSubscriptionEvent;
+use App\Modules\Listeners\ResultListener;
 use App\Modules\Listeners\StudentSubscriptionListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         StudentSubscriptionEvent::class => [
             StudentSubscriptionListener::class,
+        ],
+        ResultEvent::class => [
+            ResultListener::class,
         ],
     ];
 
