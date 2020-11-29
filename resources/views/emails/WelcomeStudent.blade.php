@@ -1,12 +1,9 @@
 @component('mail::message')
-# Introduction
 
-The body of your message.
+    # Bienvenue {{ $student->username }}-{{ $student->prenom }} a  l'institut superieur de commerce
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+    - Votre option département choisi est {{ $student->Department }}
+    - Votre numéro matricule est {{ $student->matricule }}
 
-Thanks,<br>
-{{ config('app.name') }}
+    Merci d'avoir  choisi l'ISC/Lubumbashi comme votre  institution de formation universitaire
 @endcomponent
