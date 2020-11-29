@@ -1,10 +1,10 @@
 <?php
 
-use App\Exports\ResultExport;
-use App\Exports\StudentExport;
 use App\Http\Controllers\Backend\CommunicateController;
 use App\Http\Controllers\Backend\ResultController;
 use App\Http\Controllers\Backend\StudentController;
+use App\Modules\Exports\ResultExport;
+use App\Modules\Exports\StudentExport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
