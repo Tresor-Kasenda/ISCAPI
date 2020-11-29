@@ -1,9 +1,13 @@
 <?php
-
+declare(strict_types=1);
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/***
+ * Class CreateStudentsTable
+ * @author scotttresor@gmail.com
+ */
 class CreateStudentsTable extends Migration
 {
     /**
